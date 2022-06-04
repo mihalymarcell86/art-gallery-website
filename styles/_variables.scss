@@ -1,8 +1,16 @@
 @use "sass:math";
 
-$REM: undefined;
-$breakpoint: undefinded;
+$REM: 18;
 
-$colors: undefined;
+$w_tablet: 768px;
+$w_desktop: 1440px;
 
-$font: undefined;
+$colors: (
+  tan: #d5966c,
+  chinese-black: #151515,
+  outer-space: #444444,
+  white: #ffffff,
+);
+
+$font-heading: "Big Shoulders Display", cursive;
+$font-body: "Outfit", sans-serif;
