@@ -29,7 +29,7 @@ p {
   font-family: "Outfit", sans-serif;
   color: #444444;
 }
-@media (min-width: 1440px) {
+@media (min-width: 1100px) {
   p {
     font-size: 1.2222222222rem;
     line-height: 1.4545454545;
@@ -40,44 +40,58 @@ p {
   margin-bottom: 120px;
   font-size: 0;
 }
-@media (min-width: 768px) {
+@media (min-width: 700px) {
   .header {
     display: flex;
+  }
+}
+@media (min-width: 1100px) {
+  .header {
+    margin-bottom: 180px;
+    max-width: 1440px;
+    margin-inline: auto;
+    position: relative;
   }
 }
 
 .header__black-box {
   display: none;
+  background-color: #151515;
+  overflow: hidden;
 }
-@media (min-width: 1440px) {
+@media (min-width: 800px) {
   .header__black-box {
     display: block;
-    background-color: #151515;
-    overflow: hidden;
-    width: 450px;
+    width: min(0.9 * 100vw + -720px, 450px);
+  }
+}
+
+@media (min-width: 769px) {
+  .header__hero-img {
+    width: calc(0.1535022355 * 100vw + 318.956780924px);
   }
 }
 
 .header__text {
   padding-top: 32px;
-  padding-inline: 16px;
+  padding-inline: max(16px, 0.0738461538 * 100vw + -11.6923076923px);
 }
-@media (min-width: 768px) {
+@media (min-width: 700px) {
   .header__text {
     padding: 0;
     max-width: 18.8333333333rem;
     position: absolute;
     top: 145px;
-    right: 40px;
+    right: calc(0.1689189189 * 100vw + -78.2432432432px);
   }
 }
-@media (min-width: 1440px) {
+@media (min-width: 1100px) {
   .header__text {
     display: flex;
     justify-content: space-between;
-    max-width: none;
+    max-width: 1110px;
     left: 165px;
-    right: 165px;
+    right: min(0.3382352941 * 100vw + -322.0588235294px, 165px);
     top: 190px;
   }
 }
@@ -88,14 +102,14 @@ p {
   font-weight: 900;
   margin-bottom: 0.5333333333em;
 }
-@media (min-width: 768px) {
+@media (min-width: 700px) {
   .header__title {
     font-size: 3.8888888889rem;
     line-height: 0.9285714286;
     margin-bottom: 0.6857142857em;
   }
 }
-@media (min-width: 1440px) {
+@media (min-width: 1300px) {
   .header__title {
     font-size: 5.3333333333rem;
     line-height: 0.9166666667;
@@ -103,21 +117,27 @@ p {
 }
 
 .title--black-box {
+  display: none;
   position: relative;
   top: 190px;
   left: 165px;
   z-index: 1;
 }
+@media (min-width: 1100px) {
+  .title--black-box {
+    display: block;
+  }
+}
 
 .header_paragraph {
   margin-bottom: 1.7777777778em;
 }
-@media (min-width: 768px) {
+@media (min-width: 700px) {
   .header_paragraph {
     margin-bottom: 2.6666666667em;
   }
 }
-@media (min-width: 1440px) {
+@media (min-width: 1100px) {
   .header_paragraph {
     max-width: 350px;
     margin-bottom: 2.9090909091em;
@@ -160,31 +180,31 @@ p {
 }
 
 .grid {
-  padding-inline: 16px;
+  padding-inline: max(16px, 0.0738461538 * 100vw + -11.6923076923px);
   margin-bottom: 120px;
 }
-@media (min-width: 768px) {
+@media (min-width: 700px) {
   .grid {
-    padding-inline: 40px;
+    padding-inline: clamp(40px, 0.1675675676 * 100vw + -77.2972972973px, 164px);
     display: grid;
-    grid-template: 400px 313px 396px/1fr 107px 1fr;
+    grid-template: repeat(2, min-content) 1fr/1fr minmax(107px, auto) 1fr;
     grid-template-areas: "white-section img1 img1" "img2 img2 img3" "img2 img2 black-section";
-    gap: 11px;
+    gap: clamp(11px, 0.0256756757 * 100vw + -6.972972973px, 30px);
   }
 }
 @media (min-width: 1440px) {
   .grid {
-    padding-inline: 164px;
-    grid-template: 400px 313px 377px/1fr 160px 1fr;
+    grid-template: 400px 313px 377px/445px 160px 445px;
     grid-template-areas: "white-section img1 img1" "img2 img2 img3" "img2 img2 black-section";
-    gap: 30px;
+    justify-content: center;
+    margin-bottom: 180px;
   }
 }
 
 .grid img {
   margin-bottom: 16px;
 }
-@media (min-width: 768px) {
+@media (min-width: 700px) {
   .grid img {
     margin: 0;
   }
@@ -205,21 +225,21 @@ p {
 .grid__white-section {
   margin-top: 25px;
 }
-@media (min-width: 768px) {
+@media (min-width: 700px) {
   .grid__white-section {
     grid-area: white-section;
     margin-top: 36px;
     max-width: 223px;
   }
 }
-@media (min-width: 1440px) {
+@media (min-width: 1100px) {
   .grid__white-section {
     margin-top: 60px;
     max-width: 350px;
   }
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1100px) {
   .br__day-at {
     display: none;
   }
@@ -249,7 +269,7 @@ p {
 .grid__paragraph {
   margin-bottom: 1.7777777778em;
 }
-@media (min-width: 768px) {
+@media (min-width: 700px) {
   .grid__paragraph {
     margin: 0;
   }
@@ -257,12 +277,17 @@ p {
 
 .grid__black-section {
   background-color: #151515;
-  padding: 48px 24px 15px;
+  padding-inline: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 293px;
 }
-@media (min-width: 768px) {
+@media (min-width: 700px) {
   .grid__black-section {
     grid-area: black-section;
-    padding: 85px 28px;
+    padding-block: 0;
+    padding-inline: 28px;
   }
 }
 @media (min-width: 1440px) {
@@ -289,22 +314,18 @@ p {
   background-color: #151515;
   padding: 48px 32px;
 }
-@media (min-width: 768px) {
+@media (min-width: 700px) {
   .footer {
     display: flex;
-    padding: 56px 40px;
-  }
-}
-@media (min-width: 1440px) {
-  .footer {
-    padding: 80px 165px;
+    padding-block: calc(0.0324324324 * 100vw + 33.2972972973px);
+    padding-inline: calc(0.1689189189 * 100vw + -78.2432432432px);
   }
 }
 
 .footer__logo {
   margin-bottom: 38px;
 }
-@media (min-width: 768px) {
+@media (min-width: 700px) {
   .footer__logo {
     align-self: flex-start;
   }
@@ -316,18 +337,16 @@ p {
   font-weight: 300;
   margin-bottom: 2.375em;
 }
-@media (min-width: 768px) {
+@media (min-width: 700px) {
   .footer__paragraph {
-    max-width: 281px;
-    margin: 0 auto 0 65px;
+    max-width: min(0.2013513514 * 100vw + 140.0540540541px, 430px);
+    margin: 0 auto 0 min(0.1013513514 * 100vw + -5.9459459459px, 140px);
   }
 }
 @media (min-width: 1440px) {
   .footer__paragraph {
     font-size: 1rem;
     line-height: 1.5555555556;
-    max-width: 430px;
-    margin-left: 140px;
   }
 }
 
@@ -336,11 +355,18 @@ p {
   justify-content: space-between;
   max-width: 100px;
 }
-@media (min-width: 768px) {
+@media (min-width: 700px) {
   .social-media {
     align-self: flex-start;
     width: 100px;
   }
+}
+
+.social-media svg {
+  cursor: pointer;
+}
+.social-media svg:hover path {
+  fill: #d5966c;
 }
 
 /*# sourceMappingURL=index.css.map */

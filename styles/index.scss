@@ -1,7 +1,10 @@
 @use "variables" as *;
 @use "functions" as *;
+@use "lerp" as *;
 
 @include setup;
+
+//TODO: in-between layout transitions and breakpoints to be optimized
 
 img {
   display: block;
@@ -19,7 +22,7 @@ p {
   @include setFont(rem(18px), 28, 300);
   font-family: $font-body;
   color: color(outer-space);
-  @media (min-width: $w_desktop) {
+  @media (min-width: 1100px) {
     @include setFont(rem(22px), 32);
   }
 }
@@ -31,36 +34,48 @@ p {
   @media (min-width: $w_tablet) {
     display: flex;
   }
+  @media (min-width: 1100px) {
+    margin-bottom: 180px;
+    max-width: 1440px;
+    margin-inline: auto;
+    position: relative;
+  }
 }
 
 .header__black-box {
   display: none;
-  @media (min-width: $w_desktop) {
+  background-color: color(chinese-black);
+  overflow: hidden;
+  @media (min-width: 800px) {
     display: block;
-    background-color: color(chinese-black);
-    overflow: hidden;
-    width: 450px;
+    width: min(lerp(800px, 0px, 1300px, 450px), 450px);
+  }
+}
+
+.header__hero-img {
+  @media (min-width: 769px) {
+    width: lerp(769px, 437px, $w_desktop, 540px);
   }
 }
 
 .header__text {
   padding: {
     top: 32px;
-    inline: 16px;
+    inline: max(16px, lerp(375px, 16px, $w_tablet, 40px));
   }
   @media (min-width: $w_tablet) {
     padding: 0;
     max-width: rem(339px);
     position: absolute;
     top: 145px;
-    right: 40px;
+    right: lerp($w_tablet, 40px, $w_desktop, 165px);
   }
-  @media (min-width: $w_desktop) {
+  @media (min-width: 1100px) {
     display: flex;
     justify-content: space-between;
-    max-width: none;
+    max-width: 1110px;
     left: 165px;
-    right: 165px;
+    right: min(lerp(1100px, 50px, $w_desktop, 165px), 165px);
     top: 190px;
   }
 }
@@ -72,16 +87,20 @@ p {
     @include setFont(rem(70px), 65);
     margin-bottom: em(48px, 70px);
   }
-  @media (min-width: $w_desktop) {
+  @media (min-width: 1300px) {
     @include setFont(rem(96px), 88);
   }
 }
 
 .title--black-box {
+  display: none;
   position: relative;
   top: 190px;
   left: 165px;
   z-index: 1;
+  @media (min-width: 1100px) {
+    display: block;
+  }
 }
 
 .header_paragraph {
@@ -89,7 +108,7 @@ p {
   @media (min-width: $w_tablet) {
     margin-bottom: em(48px, 18px);
   }
-  @media (min-width: $w_desktop) {
+  @media (min-width: 1100px) {
     max-width: 350px;
     margin-bottom: em(64px, 22px);
   }
@@ -131,26 +150,30 @@ p {
 }
 
 .grid {
-  padding-inline: 16px;
+  padding-inline: max(16px, lerp(375px, 16px, $w_tablet, 40px));
   margin-bottom: 120px;
   @media (min-width: $w_tablet) {
-    padding-inline: 40px;
+    padding-inline: clamp(
+      40px,
+      lerp($w_tablet, 40px, $w_desktop, 164px),
+      164px
+    );
     display: grid;
-    grid-template: 400px 313px 396px / 1fr 107px 1fr;
+    grid-template: repeat(2, min-content) 1fr / 1fr minmax(107px, auto) 1fr;
     grid-template-areas:
       "white-section img1 img1"
       "img2 img2 img3"
       "img2 img2 black-section";
-    gap: 11px;
+    gap: clamp(11px, lerp($w_tablet, 11px, $w_desktop, 30px), 30px);
   }
   @media (min-width: $w_desktop) {
-    padding-inline: 164px;
-    grid-template: 400px 313px 377px / 1fr 160px 1fr;
+    grid-template: 400px 313px 377px / 445px 160px 445px;
     grid-template-areas:
       "white-section img1 img1"
       "img2 img2 img3"
       "img2 img2 black-section";
-    gap: 30px;
+    justify-content: center;
+    margin-bottom: 180px;
   }
 }
 
@@ -174,7 +197,7 @@ p {
     margin-top: 36px;
     max-width: 223px;
   }
-  @media (min-width: $w_desktop) {
+  @media (min-width: 1100px) {
     margin-top: 60px;
     max-width: 350px;
   }
@@ -182,7 +205,7 @@ p {
 
 //responsive line-break
 .br__day-at {
-  @media (min-width: $w_desktop) {
+  @media (min-width: 1100px) {
     display: none;
   }
 }
@@ -210,10 +233,15 @@ p {
 
 .grid__black-section {
   background-color: color(chinese-black);
-  padding: 48px 24px 15px;
+  padding-inline: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 293px;
   @media (min-width: $w_tablet) {
     grid-area: black-section;
-    padding: 85px 28px;
+    padding-block: 0;
+    padding-inline: 28px;
   }
   @media (min-width: $w_desktop) {
     padding: 64px 47px;
@@ -237,10 +265,8 @@ p {
   padding: 48px 32px;
   @media (min-width: $w_tablet) {
     display: flex;
-    padding: 56px 40px;
-  }
-  @media (min-width: $w_desktop) {
-    padding: 80px 165px;
+    padding-block: lerp($w_tablet, 56px, $w_desktop, 80px);
+    padding-inline: lerp($w_tablet, 40px, $w_desktop, 165px);
   }
 }
 
@@ -255,13 +281,11 @@ p {
   @include setFont(rem(16px), 26, 300);
   margin-bottom: em(38px, 16px);
   @media (min-width: $w_tablet) {
-    max-width: 281px;
-    margin: 0 auto 0 65px;
+    max-width: min(lerp($w_tablet, 281px, $w_desktop, 430px), 430px);
+    margin: 0 auto 0 min(lerp($w_tablet, 65px, $w_desktop, 140px), 140px);
   }
   @media (min-width: $w_desktop) {
     @include setFont(rem(18px), 28);
-    max-width: 430px;
-    margin-left: 140px;
   }
 }
 
@@ -272,5 +296,12 @@ p {
   @media (min-width: $w_tablet) {
     align-self: flex-start;
     width: 100px;
+  }
+}
+
+.social-media svg {
+  cursor: pointer;
+  &:hover path {
+    fill: color(tan);
   }
 }
