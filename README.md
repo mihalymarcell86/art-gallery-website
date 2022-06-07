@@ -27,7 +27,8 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot/preview.jpg)
+![](./screenshot/screenshot1.png)
+![](./screenshot/screenshot2.png)
 
 ### Links
 
@@ -41,6 +42,7 @@ Users should be able to:
 - Semantic HTML5 markup
 - Sass, BEM
 - Mobile-first workflow
+- [Leaflet.js] (https://leafletjs.com/) and [Geoapify] (https://www.geoapify.com/)
 
 ### What I learned
 
@@ -50,9 +52,14 @@ Inline-block elements' margins don't collapse.
 
 Line breaks can be made responsive by "styling" the `<br />` element.
 
+---
+
+Making the interactive was a great practice for interacting with API's and I learned a lot about how they work.
+
 ### Useful resources
 
 - [CSS Spec - Box Model - Collapsing Margins](https://www.w3.org/TR/CSS2/box.html#collapsing-margins)
+- [Leaflet.js Tutorials](https://leafletjs.com/examples.html)
 
 ## Author
 
