@@ -32,7 +32,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [https://github.com/mihalymarcell86/art-gallery-website](https://github.com/mihalymarcell86/art-gallery-website)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [https://mihalymarcell86.github.io/art-gallery-website/](https://mihalymarcell86.github.io/art-gallery-website/)
 
 ## My process
 
@@ -44,7 +44,7 @@ Users should be able to:
 
 ### What I learned
 
-Inline-block elements' margins don't collapse.[^1]
+Inline-block elements' margins don't collapse.
 
 ---
 
@@ -52,10 +52,7 @@ Line breaks can be made responsive by "styling" the `<br />` element.
 
 ### Useful resources
 
-- [^1]: [CSS Spec - Box Model - Collapsing Margins](https://www.w3.org/TR/CSS2/box.html#collapsing-margins)
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [CSS Spec - Box Model - Collapsing Margins](https://www.w3.org/TR/CSS2/box.html#collapsing-margins)
 
 ## Author
 
