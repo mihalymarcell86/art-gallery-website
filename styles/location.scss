@@ -23,12 +23,14 @@ address {
   }
 }
 
-.map {
-  font-size: 0;
+#map {
+  width: 100%;
+  height: clamp(550px, lerp(375px, 550px, 768px, 600px), 600px);
 }
 
 .link-button {
   @include link-button("left");
+  z-index: 1000000;
   position: absolute;
   top: 0;
   left: max(56px, lerp(375px, 56px, 768px, 95px));

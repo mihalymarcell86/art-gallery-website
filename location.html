@@ -17,37 +17,36 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles/location.css" />
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.0/mapbox-gl.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.0/mapbox-gl.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://rawgit.com/mapbox/mapbox-gl-leaflet/master/leaflet-mapbox-gl.js"
+    ></script>
+    <script src="./scripts/map-script.js" defer></script>
 
     <title>Frontend Mentor | Art gallery website</title>
   </head>
   <body>
     <main>
-      <div class="map">
-        <picture>
-          <source
-            srcset="./assets/desktop/image-map@2x.png"
-            media="(min-width: 1441px)"
-          />
-          <source
-            srcset="./assets/desktop/image-map.png"
-            media="(min-width: 1100px)"
-          />
-          <source
-            srcset="./assets/tablet/image-map@2x.png"
-            media="(min-width: 769px)"
-          />
-          <source
-            srcset="./assets/tablet/image-map.png"
-            media="(min-width: 700px)"
-          />
-          <source
-            srcset="./assets/mobile/image-map@2x.png"
-            media="(min-width: 376px)"
-          />
-          <img src="./assets/mobile/image-map.png" alt="" />
-        </picture>
-        <a href="index.html" class="link-button">Back to Home</a>
-      </div>
+      <a href="index.html" class="link-button">Back to Home</a>
+      <div id="map"></div>
       <div class="location">
         <h1 class="location__heading">
           Our <br class="br--our-location" />location
