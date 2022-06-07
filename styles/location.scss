@@ -1,2 +1,100 @@
-@use "variables" as *;
-@use "functions" as *;
+@use "utilities/global" as *;
+@use "components/link" as *;
+
+@include setup;
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+em {
+  font-family: $font-heading;
+  text-transform: uppercase;
+}
+
+p,
+address {
+  font-family: $font-body;
+  font-style: normal;
+  @media (min-width: $w_br-inter) {
+    @include setFont(rem(22px), 32px, 300);
+  }
+}
+
+.map {
+  font-size: 0;
+}
+
+.link-button {
+  @include link-button("left");
+  position: absolute;
+  top: 0;
+  left: max(56px, lerp(375px, 56px, 768px, 95px));
+  @media (min-width: 768px) {
+    left: min(212px, lerp(768px, 95px, 1440px, 212px));
+  }
+}
+
+.location {
+  background-color: color(chinese-black);
+  color: color(white);
+  padding: max(48px, lerp(375px, 48px, $w_tablet, 88px))
+    max(16px, lerp(375px, 16px, $w_tablet, 40px))
+    max(56px, lerp(375px, 56px, $w_tablet, 80px));
+  @media (min-width: $w_tablet) {
+    padding: min(104px, lerp($w_tablet, 88px, $w_desktop, 104px))
+      min(165px, lerp($w_tablet, 40px, $w_desktop, 165px))
+      min(128px, lerp($w_tablet, 80px, $w_desktop, 128px));
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+address {
+  margin-bottom: em(20px, 18px);
+}
+
+.location__heading {
+  @include setFont(rem(50px), 45, 900);
+  margin-bottom: em(48px, 50px);
+  @media (min-width: $w_br-inter) {
+    @include setFont(rem(70px), 70);
+  }
+}
+
+.location__address--em {
+  @include setFont(rem(32px), 32px, 900);
+  color: color(tan);
+  font-style: normal;
+  display: inline-block;
+  margin-bottom: em(20px, 32px);
+  @media (min-width: $w_br-inter) {
+    @include setFont(rem(36px), 36);
+    margin-bottom: em(24px, 36px);
+  }
+}
+
+.location__text-container {
+  @media (min-width: $w_tablet) {
+    max-width: min(540px, lerp($w_tablet, 398px, $w_desktop, 540px));
+  }
+}
+
+.br--our-location {
+  display: none;
+  @media (min-width: $w_tablet) {
+    display: block;
+  }
+}
+
+@import "components/footer";
+
+.footer {
+  background-color: color(tan);
+}
+
+.social-media svg:hover path {
+  fill: color(white);
+}

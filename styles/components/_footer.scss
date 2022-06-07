@@ -1,0 +1,47 @@
+@use "../utilities/global" as *;
+
+.footer {
+  background-color: color(chinese-black);
+  padding: 48px 32px;
+  @media (min-width: $w_tablet) {
+    display: flex;
+    padding-block: lerp($w_tablet, 56px, $w_desktop, 80px);
+    padding-inline: lerp($w_tablet, 40px, $w_desktop, 165px);
+  }
+}
+
+.footer__logo {
+  margin-bottom: 38px;
+  @media (min-width: $w_tablet) {
+    align-self: flex-start;
+  }
+}
+
+.footer__paragraph {
+  @include setFont(rem(16px), 26, 300);
+  margin-bottom: em(38px, 16px);
+  @media (min-width: $w_tablet) {
+    max-width: min(lerp($w_tablet, 281px, $w_desktop, 430px), 430px);
+    margin: 0 auto 0 min(lerp($w_tablet, 65px, $w_desktop, 140px), 140px);
+  }
+  @media (min-width: $w_br-inter) {
+    @include setFont(rem(18px), 28);
+  }
+}
+
+.social-media {
+  display: flex;
+  justify-content: space-between;
+  max-width: 100px;
+  @media (min-width: $w_tablet) {
+    align-self: flex-start;
+    width: 100px;
+  }
+}
+
+.social-media svg {
+  cursor: pointer;
+  &:hover path {
+    fill: color(tan);
+  }
+}

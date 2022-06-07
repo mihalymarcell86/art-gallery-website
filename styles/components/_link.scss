@@ -1,0 +1,82 @@
+@use "../utilities/global" as *;
+
+%link {
+  font-family: $font-heading;
+  @include setFont(rem(20px), 24, 800);
+  letter-spacing: 3.64px;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: color(chinese-black);
+  color: color(white);
+  display: inline-block;
+  padding: em(24px, 20px) em(33px, 20px);
+  position: relative;
+}
+
+@mixin link-button($direction) {
+  @extend %link;
+  @if ($direction == "right") {
+    &::after {
+      content: "";
+      display: inline-block;
+      width: rem(56px);
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: rem(-56px);
+      background: {
+        color: color(tan);
+        image: url(../assets/icon-arrow-right.svg);
+        repeat: no-repeat;
+        size: rem(8px) rem(24px);
+        position: center;
+      }
+    }
+    &::after {
+      content: "";
+      display: inline-block;
+      width: rem(56px);
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: rem(-56px);
+      background: {
+        color: color(tan);
+        image: url(../assets/icon-arrow-right.svg);
+        repeat: no-repeat;
+        size: rem(8px) rem(24px);
+        position: center;
+      }
+    }
+    &:hover {
+      background-color: color(tan);
+      &::after {
+        background-color: color(chinese-black);
+      }
+    }
+  }
+  @if ($direction == "left") {
+    &::before {
+      content: "";
+      display: inline-block;
+      width: rem(56px);
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: rem(-56px);
+      background: {
+        color: color(tan);
+        image: url(../assets/icon-arrow-left.svg);
+        repeat: no-repeat;
+        size: rem(8px) rem(24px);
+        position: center;
+      }
+    }
+    &:hover {
+      background-color: color(tan);
+      &::before {
+        background-color: color(chinese-black);
+      }
+    }
+  }
+}

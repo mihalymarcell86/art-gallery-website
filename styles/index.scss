@@ -1,10 +1,7 @@
-@use "variables" as *;
-@use "functions" as *;
-@use "lerp" as *;
+@use "utilities/global" as *;
+@use "components/link" as *;
 
 @include setup;
-
-//TODO: in-between layout transitions and breakpoints to be optimized
 
 img {
   display: block;
@@ -22,7 +19,7 @@ p {
   @include setFont(rem(18px), 28, 300);
   font-family: $font-body;
   color: color(outer-space);
-  @media (min-width: 1100px) {
+  @media (min-width: $w_br-inter) {
     @include setFont(rem(22px), 32);
   }
 }
@@ -34,7 +31,7 @@ p {
   @media (min-width: $w_tablet) {
     display: flex;
   }
-  @media (min-width: 1100px) {
+  @media (min-width: $w_br-inter) {
     margin-bottom: 180px;
     max-width: 1440px;
     margin-inline: auto;
@@ -70,12 +67,12 @@ p {
     top: 145px;
     right: lerp($w_tablet, 40px, $w_desktop, 165px);
   }
-  @media (min-width: 1100px) {
+  @media (min-width: $w_br-inter) {
     display: flex;
     justify-content: space-between;
     max-width: 1110px;
     left: 165px;
-    right: min(lerp(1100px, 50px, $w_desktop, 165px), 165px);
+    right: min(lerp($w_br-inter, 50px, $w_desktop, 165px), 165px);
     top: 190px;
   }
 }
@@ -98,7 +95,7 @@ p {
   top: 190px;
   left: 165px;
   z-index: 1;
-  @media (min-width: 1100px) {
+  @media (min-width: $w_br-inter) {
     display: block;
   }
 }
@@ -108,45 +105,14 @@ p {
   @media (min-width: $w_tablet) {
     margin-bottom: em(48px, 18px);
   }
-  @media (min-width: 1100px) {
+  @media (min-width: $w_br-inter) {
     max-width: 350px;
     margin-bottom: em(64px, 22px);
   }
 }
 
 .link-button {
-  font-family: $font-heading;
-  @include setFont(rem(20px), 24, 800);
-  letter-spacing: 3.64px;
-  text-decoration: none;
-  text-transform: uppercase;
-  background-color: color(chinese-black);
-  color: color(white);
-  display: inline-block;
-  padding: em(24px, 20px) em(33px, 20px);
-  position: relative;
-  &::after {
-    content: "";
-    display: inline-block;
-    width: rem(56px);
-    height: 100%;
-    position: absolute;
-    top: 0;
-    right: rem(-56px);
-    background: {
-      color: color(tan);
-      image: url(../assets/icon-arrow-right.svg);
-      repeat: no-repeat;
-      size: rem(8px) rem(24px);
-      position: center;
-    }
-  }
-  &:hover {
-    background-color: color(tan);
-    &::after {
-      background-color: color(chinese-black);
-    }
-  }
+  @include link-button("right");
 }
 
 .grid {
@@ -197,7 +163,7 @@ p {
     margin-top: 36px;
     max-width: 223px;
   }
-  @media (min-width: 1100px) {
+  @media (min-width: $w_br-inter) {
     margin-top: 60px;
     max-width: 350px;
   }
@@ -205,7 +171,7 @@ p {
 
 //responsive line-break
 .br__day-at {
-  @media (min-width: 1100px) {
+  @media (min-width: $w_br-inter) {
     display: none;
   }
 }
@@ -260,48 +226,4 @@ p {
   color: color(white);
 }
 
-.footer {
-  background-color: color(chinese-black);
-  padding: 48px 32px;
-  @media (min-width: $w_tablet) {
-    display: flex;
-    padding-block: lerp($w_tablet, 56px, $w_desktop, 80px);
-    padding-inline: lerp($w_tablet, 40px, $w_desktop, 165px);
-  }
-}
-
-.footer__logo {
-  margin-bottom: 38px;
-  @media (min-width: $w_tablet) {
-    align-self: flex-start;
-  }
-}
-
-.footer__paragraph {
-  @include setFont(rem(16px), 26, 300);
-  margin-bottom: em(38px, 16px);
-  @media (min-width: $w_tablet) {
-    max-width: min(lerp($w_tablet, 281px, $w_desktop, 430px), 430px);
-    margin: 0 auto 0 min(lerp($w_tablet, 65px, $w_desktop, 140px), 140px);
-  }
-  @media (min-width: $w_desktop) {
-    @include setFont(rem(18px), 28);
-  }
-}
-
-.social-media {
-  display: flex;
-  justify-content: space-between;
-  max-width: 100px;
-  @media (min-width: $w_tablet) {
-    align-self: flex-start;
-    width: 100px;
-  }
-}
-
-.social-media svg {
-  cursor: pointer;
-  &:hover path {
-    fill: color(tan);
-  }
-}
+@import "components/footer";
