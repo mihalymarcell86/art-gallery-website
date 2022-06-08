@@ -5,6 +5,7 @@ const map = L.map("map", {
   zoomControl: false,
   minZoom: 14,
   maxZoom: 16,
+  dragging: false,
 });
 
 const myIcon = L.icon({

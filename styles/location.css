@@ -201,19 +201,19 @@ address {
   }
 }
 
-.social-media svg {
-  cursor: pointer;
-}
-.social-media svg:hover path {
-  fill: #d5966c;
+.social-media a:visited svg path {
+  fill: currentColor;
 }
 
 .footer {
   background-color: #d5966c;
 }
-
-.social-media svg:hover path {
-  fill: #ffffff;
+.footer a,
+.footer a:visited {
+  color: #151515;
+}
+.footer a:hover {
+  color: #ffffff;
 }
 
 /*# sourceMappingURL=location.css.map */

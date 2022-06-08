@@ -95,8 +95,11 @@ address {
 
 .footer {
   background-color: color(tan);
-}
-
-.social-media svg:hover path {
-  fill: color(white);
+  a,
+  a:visited {
+    color: color(chinese-black);
+  }
+  a:hover {
+    color: color(white);
+  }
 }

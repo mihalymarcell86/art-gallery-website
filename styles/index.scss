@@ -24,7 +24,7 @@ p {
   }
 }
 
-.header {
+.hero {
   margin-bottom: 120px;
   font-size: 0;
   //to eliminate gap between hero image and div
@@ -39,7 +39,7 @@ p {
   }
 }
 
-.header__black-box {
+.hero__black-box {
   display: none;
   background-color: color(chinese-black);
   overflow: hidden;
@@ -47,15 +47,41 @@ p {
     display: block;
     width: min(lerp(800px, 0px, 1300px, 450px), 450px);
   }
+  @media (min-width: $w_br-inter) {
+    &::after {
+      content: "MODERN\000d ART\202FGALLERY";
+      color: white;
+      position: relative;
+      top: 190px;
+      left: 165px;
+      z-index: 1;
+      font-family: $font-heading;
+      @include setFont(rem(70px), 65, 900);
+      @media (min-width: 1300px) {
+        @include setFont(rem(96px), 88);
+      }
+    }
+  }
 }
 
-.header__hero-img {
+.title--black-box {
+  display: none;
+  position: relative;
+  top: 190px;
+  left: 165px;
+  z-index: 1;
+  @media (min-width: $w_br-inter) {
+    display: block;
+  }
+}
+
+.hero__hero-img {
   @media (min-width: 769px) {
     width: lerp(769px, 437px, $w_desktop, 540px);
   }
 }
 
-.header__text {
+.hero__text {
   padding: {
     top: 32px;
     inline: max(16px, lerp(375px, 16px, $w_tablet, 40px));
@@ -77,7 +103,7 @@ p {
   }
 }
 
-.header__title {
+.hero__title {
   @include setFont(rem(60px), 55, 900);
   margin-bottom: em(32px, 60px);
   @media (min-width: $w_tablet) {
@@ -89,18 +115,7 @@ p {
   }
 }
 
-.title--black-box {
-  display: none;
-  position: relative;
-  top: 190px;
-  left: 165px;
-  z-index: 1;
-  @media (min-width: $w_br-inter) {
-    display: block;
-  }
-}
-
-.header_paragraph {
+.hero_paragraph {
   margin-bottom: em(32px, 18px);
   @media (min-width: $w_tablet) {
     margin-bottom: em(48px, 18px);
@@ -176,6 +191,10 @@ p {
   }
 }
 
+.span--linebreak {
+  display: inline-block;
+}
+
 .grid__heading {
   @include setFont(rem(50px), 45, 900);
   @media (min-width: $w_desktop) {
@@ -224,6 +243,16 @@ p {
 
 .text--white {
   color: color(white);
+}
+
+.footer {
+  a,
+  a:visited {
+    color: color(white);
+  }
+  a:hover {
+    color: color(tan);
+  }
 }
 
 @import "components/footer";

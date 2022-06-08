@@ -39,9 +39,8 @@
   }
 }
 
-.social-media svg {
-  cursor: pointer;
-  &:hover path {
-    fill: color(tan);
+.social-media a {
+  &:visited svg path {
+    fill: currentColor;
   }
 }
