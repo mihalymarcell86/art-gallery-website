@@ -245,6 +245,8 @@ p {
   color: color(white);
 }
 
+@import "components/footer";
+
 .footer {
   a:link,
   a:visited {
@@ -255,5 +257,3 @@ p {
     color: color(tan);
   }
 }
-
-@import "components/footer";
