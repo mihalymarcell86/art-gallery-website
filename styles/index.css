@@ -350,11 +350,12 @@ p {
   color: #ffffff;
 }
 
-.footer a,
+.footer a:link,
 .footer a:visited {
   color: #ffffff;
 }
-.footer a:hover {
+.footer a:hover,
+.footer a:focus {
   color: #d5966c;
 }
 
@@ -408,10 +409,6 @@ p {
     align-self: flex-start;
     width: 100px;
   }
-}
-
-.social-media a:visited svg path {
-  fill: currentColor;
 }
 
 /*# sourceMappingURL=index.css.map */

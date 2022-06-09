@@ -246,11 +246,12 @@ p {
 }
 
 .footer {
-  a,
+  a:link,
   a:visited {
     color: color(white);
   }
-  a:hover {
+  a:hover,
+  a:focus {
     color: color(tan);
   }
 }

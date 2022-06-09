@@ -1,3 +1,5 @@
+const mapDiv = document.getElementById("map");
+
 // The Leaflet map Object
 const map = L.map("map", {
   center: [41.48133, -71.312549],
@@ -5,13 +7,14 @@ const map = L.map("map", {
   zoomControl: false,
   minZoom: 14,
   maxZoom: 16,
-  dragging: false,
+  tap: mapDiv.offsetHeight + 100 <= window.innerHeight,
+  dragging: mapDiv.offsetHeight + 100 <= window.innerHeight,
 });
 
 const myIcon = L.icon({
   iconUrl: "./assets/icon-location.svg",
   iconSize: [66, 88],
-  iconAnchor: [22, 94],
+  iconAnchor: [33, 88],
 });
 
 L.marker([41.48050446235672, -71.31091820155076], { icon: myIcon }).addTo(map);

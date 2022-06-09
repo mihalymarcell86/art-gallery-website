@@ -201,18 +201,15 @@ address {
   }
 }
 
-.social-media a:visited svg path {
-  fill: currentColor;
-}
-
 .footer {
   background-color: #d5966c;
 }
-.footer a,
+.footer a:link,
 .footer a:visited {
   color: #151515;
 }
-.footer a:hover {
+.footer a:hover,
+.footer a:focus {
   color: #ffffff;
 }
 

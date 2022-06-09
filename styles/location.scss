@@ -95,11 +95,12 @@ address {
 
 .footer {
   background-color: color(tan);
-  a,
+  a:link,
   a:visited {
     color: color(chinese-black);
   }
-  a:hover {
+  a:hover,
+  a:focus {
     color: color(white);
   }
 }
